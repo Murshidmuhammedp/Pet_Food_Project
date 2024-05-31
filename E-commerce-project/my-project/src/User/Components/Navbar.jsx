@@ -58,6 +58,9 @@ function Navbar() {
                     <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto"
                         onChange={e => setsearch(e.target.value)} onClick={() => navigate('/searchbar')} />
                 </div>
+                <div className="rating gap-1">
+                    <input type="radio" name="rating-1" className="mask mask-heart bg-red-500" onClick={() => { navigate("/wishlist") }} />
+                </div>
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle" onClick={() => { navigate('/Addcart') }} >
                         <div className="indicator" >

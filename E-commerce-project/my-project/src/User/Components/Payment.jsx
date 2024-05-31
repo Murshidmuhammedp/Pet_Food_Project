@@ -21,9 +21,6 @@ function SuccessPayment() {
       } catch (e) {
         toast.error(e.res.data.message);
       }
-
-
-
     };
 
     const timeoutId = setTimeout(fetchData, 3000);
@@ -35,7 +32,7 @@ function SuccessPayment() {
   }, [navigate]); // Include navigate in the dependency array
 
   return (
-    <div className="payment-success d-flex justify-content-md-center w-screen h-screen">
+    <div className="flex items-center justify-center w-screen h-screen bg-white">
       <img
         src="https://cdn.dribbble.com/users/253392/screenshots/6906291/check.gif"
         alt="Success"
