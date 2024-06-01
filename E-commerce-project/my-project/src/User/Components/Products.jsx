@@ -38,3 +38,7 @@ function Products() {
 }
 
 export default Products
+{/* <button
+className={`mask mask-heart w-6 h-6 ${wishlist.includes(item.id) ? 'bg-red-400' : 'bg-gray-300'}`}
+onClick={() => handleWishlistChange(item.id)}
+/> */}
