@@ -21,10 +21,11 @@ export const Mycontext = createContext()
 function App() {
   const [cate, setcate] = useState("");
   const [search, setsearch] = useState("")
+  const [cartlength, setcartlength] = useState()
 
   return (
     <div>
-      <Mycontext.Provider value={{ setcate, cate, search, setsearch }}>
+      <Mycontext.Provider value={{ setcate, cate, search, setsearch, cartlength, setcartlength }}>
 
         <Routes>
           <Route path='/' element={<Home />}></Route>

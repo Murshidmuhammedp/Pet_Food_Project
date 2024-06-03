@@ -11,7 +11,6 @@ function Productadd() {
     const [description, setdescription] = useState("")
     const [price, setprice] = useState(0)
     const navigate = useNavigate()
-    console.log(image[0]);
 
     const productreg = async (e) => {
         e.preventDefault()

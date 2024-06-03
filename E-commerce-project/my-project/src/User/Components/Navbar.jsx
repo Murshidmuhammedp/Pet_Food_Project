@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function Navbar() {
     const [length, setlength] = useState()
-    const { setcate, setfilter, filter, setsearch } = useContext(Mycontext)
+    const { setcate, setfilter, filter, setsearch, cartlength } = useContext(Mycontext)
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -16,7 +16,7 @@ function Navbar() {
                 })
         }
         fetchproduct();
-    }, [length])
+    },)
     return (
 
         <div className="navbar bg-base-100 z-40">

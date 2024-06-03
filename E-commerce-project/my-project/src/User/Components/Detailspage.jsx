@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Navbar from './Navbar';
 import axios from 'axios';
+import { Mycontext } from '../../App';
 
 function Detailspage() {
     const { userid } = useParams();
     const [detail, setdetail] = useState([]);
     const [ItemQuantity, setItemQuantity] = useState(1)
+    // const {setcartlength}=useContext(Mycontext)
 
 
     const navigate = useNavigate()
