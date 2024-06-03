@@ -82,7 +82,7 @@ export const login = async (req, res, next) => {
         if (!isValid) {
             res.status(401).json({ message: "Password incorrect" });
         };
- 
+
         // JWT setting
         // const JWT_secret_key = crypto.randomUUID(10).toString('hex');
 
@@ -96,4 +96,21 @@ export const login = async (req, res, next) => {
         next(error);
     }
 
+};
+
+// View a specific user data by ID
+
+export const userbyid = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+
+        const user = await User.findById(id);
+
+        if (!user) {
+            res.status(404).json({ message: "User not found" });
+        }
+        res.status(200).json({ data: user });
+    } catch (error) {
+        next(error);
+    }
 };

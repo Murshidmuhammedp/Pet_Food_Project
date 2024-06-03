@@ -62,7 +62,7 @@ export const viewWishList = async (req, res, next) => {
             res.status(400).json({ message: "Your account is suspended" });
         }
         if (!user.wishList || user.wishList.length === 0) {
-            res.status(200).json({ message: "WishList is empty" });
+            res.status(200).json([]);
         }
         res.status(200).json(user.wishList);
 

@@ -24,7 +24,7 @@ function Addcart() {
     const remove = (id) => {
         axios.delete(`http://localhost:5050/user/api/${localStorage.getItem("userId")}/cart/${id}/remove`)
             .then(res => {
-                alert("Product removed successfully");
+                toast.success("Product removed successfully");
             })
             .catch(error => {
                 console.error("Error deleting product:", error);

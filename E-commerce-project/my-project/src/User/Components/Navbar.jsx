@@ -4,16 +4,19 @@ import { Mycontext } from '../../App';
 import axios from 'axios';
 
 function Navbar() {
-    const [length, setLength] = useState()
+    const [length, setlength] = useState()
     const { setcate, setfilter, filter, setsearch } = useContext(Mycontext)
+    const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/user/${localStorage.getItem("user.id")}`).then((ref) => {
-            setLength(ref.data.cart.length)
-        })
-    }, [])
-
-    const navigate = useNavigate();
+        const fetchproduct = async () => {
+            await axios.get(`http://localhost:5050/user/api/byid/${localStorage.getItem("userId")}`)
+                .then((res) => {
+                    setlength(res.data.data.cart.length);
+                })
+        }
+        fetchproduct();
+    }, [length])
     return (
 
         <div className="navbar bg-base-100 z-40">
