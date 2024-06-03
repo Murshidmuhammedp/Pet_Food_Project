@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import AdminNav from '../Adminside/AdminNav';
+import toast from 'react-hot-toast';
 
 function Userpage() {
 
@@ -17,6 +18,8 @@ function Userpage() {
 
     const handleblock = (value) => {
         axios.patch(`http://localhost:5050/admin/api/user/B&U/${value._id}`);
+        toast.success(`${value.isDeleted===false?'Blocked ':'Unblocked '}user successfully`);
+
     }
 
     return (

@@ -5,7 +5,7 @@ import Product from "../models/productsSchema.js";
 export const createProduct = async (req, res, next) => {
     try {
         const values = req.body
-        // const values =await productJoi.validate(req.body);
+        // const values =await productJoi.validate(req.body); 
 
         // if (values.error) {
         // return res.status(400).json({ message: "Validation failed", details: error.details });
