@@ -15,6 +15,7 @@ import Adminhome from './assets/Adminside/Adminhome'
 import AdminLogin from './assets/Adminside/AdminLogin'
 import SuccessPayment from './User/Components/Payment'
 import Wishlist from './User/Components/Wishlist'
+import Orderdetails from './User/Components/Orderdetails'
 
 export const Mycontext = createContext()
 
@@ -41,6 +42,7 @@ function App() {
           <Route path='/adminLogin' element={<AdminLogin />}></Route>
           <Route path='/successpayment' element={<SuccessPayment />}></Route>
           <Route path='/wishlist' element={<Wishlist />}></Route>
+          <Route path='/Orderdetails' element={<Orderdetails />}></Route>
           <Route path='/admin/*' element={<Adminhome />}></Route>
         </Routes>
 

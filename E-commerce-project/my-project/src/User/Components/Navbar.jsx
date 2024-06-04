@@ -82,6 +82,9 @@ function Navbar() {
                         </div>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <li onClick={() => {
+                            navigate('/Orderdetails')
+                        }}><a href="">Order</a></li>
                         {localStorage.getItem("user.name") ?
                             <li onClick={() => {
                                 navigate('/login')

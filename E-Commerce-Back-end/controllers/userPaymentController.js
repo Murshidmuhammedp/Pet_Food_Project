@@ -129,7 +129,7 @@ export const orderDetails = async (req, res, next) => {
         });
 
         if (!user) {
-            res.status(404).json({ message: "user not found" });
+            res.status(200).json({ message: "user not found" });
         }
         if (!user.Orders || user.Orders.length === 0) {
             res.status(200).json({ message: "Order is empty" });
