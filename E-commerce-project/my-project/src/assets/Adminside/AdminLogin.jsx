@@ -30,39 +30,6 @@ function AdminLogin() {
         <>
             <div className="navbar bg-base-100 z-40">
                 <div className='navbar-start'>
-                    <div className='dropdown dropdown-hover'>
-                        <div tabIndex={0} className='btn btn-ghost' role='button'><h1 className='text-2xl'>Category</h1></div>
-                        <ul tabIndex={0} className='menu menu-sm dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box sm:w-52'>
-                            <li ><a className='text-lg'
-                                onClick={() => {
-                                    setcate("Cat")
-                                    navigate('/category')
-                                }}
-                            >Cat</a>
-                            </li>
-                            <li><a className='text-lg'
-                                onClick={() => {
-                                    setcate("Dog")
-                                    navigate('/category')
-                                }}
-                            >Dog</a>
-                            </li>
-                            <li><a className='text-lg'
-                                onClick={() => {
-                                    setcate("Birds")
-                                    navigate('/category')
-                                }}
-                            >Birds</a>
-                            </li>
-                            <li><a className='text-lg'
-                                onClick={() => {
-                                    setcate("fish")
-                                    navigate('/category')
-                                }}
-                            >Fish</a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
                 <div className='text-2xl font-serif font-bold text-red-600'><button onClick={() => { navigate('/') }}>PetPro</button></div>
                 <div className="navbar-end">
