@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Mycontext } from '../../App';
 import axios from 'axios';
 
 function Navbar() {
-    const [length, setLength] = useState()
-    const { setcate, setfilter, filter, setsearch, cartlength } = useContext(Mycontext)
+    const [length, setLength] = useState();
+    const { setcate, setfilter, filter, setsearch, cartlength } = useContext(Mycontext);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -13,41 +13,37 @@ function Navbar() {
             await axios.get(`http://localhost:5050/user/api/byid/${localStorage.getItem("userId")}`)
                 .then((res) => {
                     setLength(res.data.data.cart.length);
-                })
-        }
+                });
+        };
         fetchProduct();
     }, []);
 
     return (
         <div className="navbar bg-white p-4 shadow-lg text-gray-700">
-            <div className="flex-1">
+            <div className="flex-1 flex items-center">
                 <div className="dropdown dropdown-hover">
-                    <button tabIndex={0} className="btn btn-ghost text-xl" role="button">
+                    <button tabIndex={0} className="btn btn-ghost text-lg" role="button">
                         <h1 className="text-gray-900">Category</h1>
                     </button>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-white text-gray-700 rounded-box w-52">
                         {['Cat', 'Dog', 'Birds', 'Fish'].map(category => (
                             <li key={category}>
-                                <a
-                                    className="text-lg hover:bg-gray-100"
-                                    onClick={() => { setcate(category); navigate('/category'); }}
-                                >
+                                <a className="text-lg hover:bg-gray-100"
+                                    onClick={() => { setcate(category); navigate('/category'); }}>
                                     {category}
                                 </a>
                             </li>
                         ))}
                     </ul>
                 </div>
-            </div>
-            <div className="flex-none">
                 <button
-                    className="text-3xl font-serif font-bold text-blue-600"
+                    className="text-lg font-serif font-bold text-blue-600 mx-auto md:mx-4"
                     onClick={() => { navigate('/') }}
                 >
                     PetPro
                 </button>
             </div>
-            <div className="flex-none md:flex gap-4 items-center">
+            <div >
                 <div className="form-control">
                     <input
                         type="text"
@@ -113,12 +109,12 @@ function Navbar() {
                 <div className="dropdown dropdown-end">
                     <button tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            <img alt="User Avatar" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            <img alt="User Avathar" src="https://img.icons8.com/?size=100&id=98957&format=png&color=000000" />
                         </div>
                     </button>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-white text-gray-700 rounded-box w-52">
                         <li onClick={() => { navigate('/Orderdetails'); }}>
-                            <a>Order</a>
+                            <a>Orders</a>
                         </li>
                         {localStorage.getItem("user.name") ? (
                             <li onClick={() => {
@@ -136,7 +132,7 @@ function Navbar() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default Navbar
+export default Navbar;

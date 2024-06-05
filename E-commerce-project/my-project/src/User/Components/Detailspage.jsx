@@ -22,8 +22,9 @@ function Detailspage() {
     const addcart = async () => {
         await axios.post(`http://localhost:5050/user/api/${localStorage.getItem("userId")}/cart/${userid}`)
             .then(res => alert(res.data.message));
-      //  await axios.post(`http://localhost:5050/user/api/${localStorage.getItem("userId")}/cart/${userid}/increment`, { ItemQuantity });
     }
+
+    
 
     return (
         <div>
@@ -36,7 +37,23 @@ function Detailspage() {
                         <h2 className="card-title font-bold text-3xl">{detail.title}</h2>
                         <h2 className=' text-xl font-bold'>{detail.category} Food</h2>
                         <p>{detail.description}</p>
-                        <label>Qty : <input type='number' onClick={e => setItemQuantity(e.target.value)}></input></label>
+                        {/* <label>Qty : <input type='number' onClick={e => setItemQuantity(e.target.value)}></input></label> */}
+                        <div className="flex items-center space-x-2">
+                            <button
+                              className="border border-black bg-white text-black font-bold w-6 h-6 flex items-center justify-center rounded"
+                            //   onClick={() => handleDecrement}
+                            >
+                              -
+                            </button>
+                            <p className="text-gray-700">{11}</p>
+                            <button
+                              className="border border-black bg-white font-bold text-black w-6 h-6 flex items-center justify-center rounded"
+                            //   onClick={() => handleIncrement(orderIndex, itemIndex)}
+                            >
+                              +
+                            </button>
+                          </div>
+
                         <div className="card-actions flex flex-col items-center">
                             <h1 className='text-3xl font-bold'> ₹ {detail.price * ItemQuantity}</h1>
                             {localStorage.getItem("userId") ? <button className="btn btn-primary" onClick={addcart}>Add To Cart</button> : <button className="btn btn-primary" onClick={() => navigate('/Login')}>Please Login</button>}
