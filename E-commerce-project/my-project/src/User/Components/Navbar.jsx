@@ -21,21 +21,6 @@ function Navbar() {
     return (
         <div className="navbar bg-white p-4 shadow-lg text-gray-700">
             <div className="flex-1 flex items-center">
-                <div className="dropdown dropdown-hover">
-                    <button tabIndex={0} className="btn btn-ghost text-lg" role="button">
-                        <h1 className="text-gray-900">Category</h1>
-                    </button>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-white text-gray-700 rounded-box w-52">
-                        {['Cat', 'Dog', 'Birds', 'Fish'].map(category => (
-                            <li key={category}>
-                                <a className="text-lg hover:bg-gray-100"
-                                    onClick={() => { setcate(category); navigate('/category'); }}>
-                                    {category}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
                 <button
                     className="text-lg font-serif font-bold text-blue-600 mx-auto md:mx-4"
                     onClick={() => { navigate('/') }}

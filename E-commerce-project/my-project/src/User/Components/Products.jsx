@@ -1,14 +1,11 @@
 import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
-import CategoryWise from './Categoryshow';
-import { Mycontext } from '../../App';
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
- 
+
 function Products() {
     const [items, setitems] = useState([]);
-    const { setcate, setfilter, filter, setsearch, cartlength } = useContext(Mycontext)
-   const navigate=useNavigate()
+
 
     useEffect(() => {
         const fetchproduct = async () => {
@@ -18,17 +15,12 @@ function Products() {
         fetchproduct();
     }, []);
 
-    const categories = [
-        { imageUrl: 'https://cdn.shopify.com/s/files/1/0086/0795/7054/files/Dog_payday.png?v=1680288959', title: 'DOG' },
-        { imageUrl: 'https://cdn.shopify.com/s/files/1/0086/0795/7054/files/cat_payday.png?v=1680288959', title: 'CAT' },
-        { imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShsfJ_ltVj3dn-aPTKdAHgLX5aKB1xqDrZqK2wzvcMjLFg08YP7NVKHD3_MtTuh7P94JY&usqp=CAU', title: 'BIRDS' },
-        { imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfHlcmASZgNOAA0mtIwob78oSLwGP1PybjDQ&s', title: 'FISH' }
-    ];
+
 
     return (
         <>
             <div className="mb-10 flex flex-col items-center justify-center m-5">
-               
+
             </div>
 
             <h1 className='text-5xl text-black font-bold bg-yellow-100'>Products</h1>
