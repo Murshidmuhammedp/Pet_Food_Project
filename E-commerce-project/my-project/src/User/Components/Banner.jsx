@@ -11,6 +11,8 @@ function Banner() {
                     <img src="https://tailsnation.com/cdn/shop/collections/New-Project-30-1.png?v=1671608009" className="w-full h-auto" alt="Pet Food" />
                 </div>
             </div>
+
+            
         </div>
 
     )

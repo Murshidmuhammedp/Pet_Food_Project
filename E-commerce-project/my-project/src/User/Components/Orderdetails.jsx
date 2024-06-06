@@ -1,21 +1,19 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 
 function Orderdetails() {
 
-    const [count, setcount] = useState(0);
-    const [orders, setorders] = useState([])
+    const [orders, setorders] = useState([]);
     const userId = localStorage.getItem("userId");
 
     useEffect(() => {
         const orderDetails = async () => {
             await axios.get(`http://localhost:5050/user/api/${userId}/orderdetails`)
                 .then((res) => setorders(res.data))
-            //    .then((res)=>console.log(res.data)); 
         }
         orderDetails();
-    }, [])
+    }, []);
 
 
     return (
@@ -35,7 +33,6 @@ function Orderdetails() {
                                         <p><span className="font-medium text-gray-800">Order ID:</span> {order?.orderId}</p>
                                         <p><span className="font-medium text-gray-800">Date:</span> {order?.purchaseDate}</p>
                                         <p><span className={`font-medium text-gray-800 ${order?.Status === 'Delivered' ? 'text-green-500' : 'text-yellow-500'}`}>Status:</span> {order?.Status}</p>
-
                                     </div>
                                 </div>
 
@@ -53,13 +50,11 @@ function Orderdetails() {
                                         ))}
                                     </div>
                                 </div>
-
                                 <div>
                                     <h3 className="text-xl font-semibold text-blue-700">Total Cost</h3>
                                     <p className="mt-2 text-2xl font-bold text-gray-800">₹ {order?.totalPrice}</p>
                                 </div>
                             </div>
-
                         ))
                     ) : (
                         <p className="text-gray-600">No orders found.</p>
@@ -67,8 +62,7 @@ function Orderdetails() {
                 </div>
             </div>
         </>
-
     )
-}
+};
 
-export default Orderdetails
+export default Orderdetails;
