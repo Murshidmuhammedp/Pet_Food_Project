@@ -70,8 +70,9 @@ function Addcart() {
                             <figure className="w-full md:w-1/3">
                                 <img width={300} height={300} src={value?.productId.productImage} alt={value?.productId.title} className="object-cover w-full h-full" />
                             </figure>
-                            <div className="w-full md:w-2/3 p-4 md:pt-[60px]">
+                            <div className="w-full md:w-2/3 p-4 md:pt-[50px]">
                                 <h2 className="text-2xl font-bold text-black">{value?.productId.title}</h2>
+                                <p className="text-md text-black">{value?.productId.category} Food</p>
                                 <div className="flex items-center mt-4">
                                     <button
                                         className="px-2 py-1 h-[30px] w-[30px] border-2 border-black text-black"

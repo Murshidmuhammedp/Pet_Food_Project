@@ -135,12 +135,12 @@ export const decrementItemQuantity = async (req, res, next) => {
             res.status(404).json({ message: "product not found" });
         }
         const Item = await cart.findOne({ userId: user._id, productId: product._id });
-        if (Item) {
+        if (Item.quantity>1) {
             Item.quantity --;
             await Item.save();
             res.status(200).json({ message: "Quantity decremented" });
         } else {
-            res.status(404).json({ message: "product not found in the cart" });
+            res.status(202).json({ message: "Minimum Quantity 1" });
         }
 
     } catch (error) {
