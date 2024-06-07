@@ -96,7 +96,6 @@ export const incrementItemQuantity = async (req, res, next) => {
     try {
         const userid = req.params.userid;
         const productid = req.params.productid;
-        const { ItemQuantity } = req.body;
 
         const user = await User.findById(userid);
         if (!user) {
@@ -108,7 +107,7 @@ export const incrementItemQuantity = async (req, res, next) => {
         }
         const Item = await cart.findOne({ userId: user._id, productId: product._id });
         if (Item) {
-            Item.quantity += ItemQuantity;
+            Item.quantity ++;
             await Item.save();
             res.status(200).json({ message: "Quantity Incremented" });
         } else {
@@ -126,7 +125,6 @@ export const decrementItemQuantity = async (req, res, next) => {
     try {
         const userid = req.params.userid;
         const productid = req.params.productid;
-        const { ItemQuantity } = req.body;
 
         const user = await User.findById(userid);
         if (!user) {
@@ -138,7 +136,7 @@ export const decrementItemQuantity = async (req, res, next) => {
         }
         const Item = await cart.findOne({ userId: user._id, productId: product._id });
         if (Item) {
-            Item.quantity -= ItemQuantity;
+            Item.quantity --;
             await Item.save();
             res.status(200).json({ message: "Quantity decremented" });
         } else {

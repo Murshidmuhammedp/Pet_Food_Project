@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Navbar from './Navbar';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 function Detailspage() {
     const { userid } = useParams();
     const [detail, setdetail] = useState([]);
-    const [ItemQuantity, setItemQuantity] = useState(1)
+    // const [ItemQuantity, setItemQuantity] = useState(1)
 
     const navigate = useNavigate()
 
@@ -21,10 +22,12 @@ function Detailspage() {
 
     const addcart = async () => {
         await axios.post(`http://localhost:5050/user/api/${localStorage.getItem("userId")}/cart/${userid}`)
-            .then(res => alert(res.data.message));
+            .then(res => toast.success(res.data.message));
     }
 
-    
+   
+
+
 
     return (
         <div>
@@ -37,25 +40,10 @@ function Detailspage() {
                         <h2 className="card-title font-bold text-3xl">{detail.title}</h2>
                         <h2 className=' text-xl font-bold'>{detail.category} Food</h2>
                         <p>{detail.description}</p>
-                        {/* <label>Qty : <input type='number' onClick={e => setItemQuantity(e.target.value)}></input></label> */}
-                        <div className="flex items-center space-x-2">
-                            <button
-                              className="border border-black bg-white text-black font-bold w-6 h-6 flex items-center justify-center rounded"
-                            //   onClick={() => handleDecrement}
-                            >
-                              -
-                            </button>
-                            <p className="text-gray-700">{11}</p>
-                            <button
-                              className="border border-black bg-white font-bold text-black w-6 h-6 flex items-center justify-center rounded"
-                            //   onClick={() => handleIncrement(orderIndex, itemIndex)}
-                            >
-                              +
-                            </button>
-                          </div>
+                        
 
                         <div className="card-actions flex flex-col items-center">
-                            <h1 className='text-3xl font-bold'> ₹ {detail.price * ItemQuantity}</h1>
+                            <h1 className='text-3xl font-bold'> ₹ {detail.price }</h1>
                             {localStorage.getItem("userId") ? <button className="btn btn-primary" onClick={addcart}>Add To Cart</button> : <button className="btn btn-primary" onClick={() => navigate('/Login')}>Please Login</button>}
                         </div>
                     </div>
