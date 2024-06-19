@@ -23,12 +23,12 @@ function Products() {
         fetchWishlist();
     }, []);
 
+
     const handleWishlistChange = async (id) => {
         try {
             const response = await axios.post(`http://localhost:5050/user/api/${localStorage.getItem("userId")}/wishlist/${id}`);
             toast.success(response.data.message);
 
-            // Update the wishlist state
             const updatedWishlist = await axios.get(`http://localhost:5050/user/api/wishlist/${localStorage.getItem("userId")}`);
             setWishlist(updatedWishlist.data);
         } catch (error) {
@@ -45,7 +45,8 @@ function Products() {
                 {items.map((item) => (
                     <div key={item._id} className="card w-80 bg-white shadow-xl text-black flex m-3 relative">
                         <button
-                            className={`absolute top-4 right-4 mask mask-heart w-6 h-6 ${wishlists.findIndex((wishlistItem) => wishlistItem._id === item._id) ? 'bg-red-500' : 'bg-gray-300'}`}
+                            className={`absolute top-4 right-4 mask mask-heart w-6 h-6 ${wishlists.findIndex((wishlistItem) => wishlistItem.productId
+                                ._id == item._id) !== -1 ? 'bg-red-500' : 'bg-gray-300'}`}
                             onClick={() => handleWishlistChange(item._id)}
                         />
                         <figure className="px-10 pt-10">
