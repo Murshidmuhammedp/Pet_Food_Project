@@ -14,7 +14,6 @@ function Home() {
             <Products />
             <Footer />
         </div>
-
     )
 }
 
